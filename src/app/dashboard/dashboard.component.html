@@ -1,0 +1,80 @@
+<section class="wrapper-dashboard">
+  <app-header></app-header>
+
+  <div class="basic-info">
+    <p>Lorem ipsum is a dummy text</p>
+    <button
+      class="delete-button"
+      (click)="deleteMultipleUser()"
+      [disabled]="!isSelectedAny()"
+    >
+      Delete
+    </button>
+  </div>
+
+  <div class="table-wrapper">
+    <mat-table
+      #table
+      [dataSource]="dataSourse"
+      class="mat-elevation-z8"
+      cdkDropList
+      (cdkDropListDropped)="drop($event)"
+      cdkDropListData="dataSource"
+      [cdkDropListDisabled]="dragDisabled"
+      matSort
+      (matSortChange)="onSort($event)"
+    >
+      <ng-container matColumnDef="isSelected">
+        <mat-header-cell *matHeaderCellDef> </mat-header-cell>
+        <mat-cell *matCellDef="let element">
+          <mat-checkbox
+            (change)="element.isSelected = $event.checked"
+            [checked]="element.isSelected"
+          >
+          </mat-checkbox>
+        </mat-cell>
+      </ng-container>
+
+      <ng-container matColumnDef="firstName">
+        <mat-header-cell mat-header-cell *matHeaderCellDef mat-sort-header>
+          Name
+        </mat-header-cell>
+        <mat-cell *matCellDef="let element"> {{ element.firstName }} </mat-cell>
+      </ng-container>
+
+      <ng-container matColumnDef="email">
+        <mat-header-cell mat-header-cell *matHeaderCellDef mat-sort-header>
+          Email
+        </mat-header-cell>
+        <mat-cell *matCellDef="let element"> {{ element.email }} </mat-cell>
+      </ng-container>
+
+      <ng-container matColumnDef="phone">
+        <mat-header-cell mat-header-cell *matHeaderCellDef mat-sort-header>
+          Phone
+        </mat-header-cell>
+        <mat-cell *matCellDef="let element"> {{ element.phone }} </mat-cell>
+      </ng-container>
+
+      <ng-container matColumnDef="position">
+        <mat-header-cell *matHeaderCellDef> Option</mat-header-cell>
+        <mat-cell *matCellDef="let element">
+          <span class="dragCursor" (mousedown)="dragDisabled = false">
+            <i class="fa fa-bars"></i>
+          </span>
+          <span (click)="deleteSingleUser(element.id)">
+            <i class="fa fa-trash-can"></i>
+          </span>
+        </mat-cell>
+      </ng-container>
+
+      <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+      <mat-row
+        *matRowDef="let row; columns: displayedColumns"
+        cdkDrag
+        [cdkDragData]="row"
+      ></mat-row>
+    </mat-table>
+  </div>
+</section>
+<app-snake-bar></app-snake-bar>

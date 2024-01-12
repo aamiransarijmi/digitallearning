@@ -1,0 +1,48 @@
+<section class="login-wrapper">
+  <section class="info-section">
+    <h1><strong>Digital</strong> Platform</h1>
+    <h1>for distance <strong> learning </strong></h1>
+    <h2>
+      Internet and online based digital technologies such as desktop computers,
+      mobile phones and other
+    </h2>
+  </section>
+  <section class="login-section">
+    <img src="/assets/image/logo1.png" alt="logo" class="logo" />
+    <span class="lock-icon">
+      <img src="/assets/image/lock.svg" alt="logo" />
+    </span>
+    <h4>Welcome Back</h4>
+    <form class="login-form" [formGroup]="loginForm">
+      <div class="input-wrapper">
+        <img src="/assets/image/user.svg" alt="user" />
+        <input type="text" formControlName="name" />
+      </div>
+      <div class="input-wrapper">
+        <img src="/assets/image/password-lock.svg" alt="user" />
+        <input
+          type="password"
+          formControlName="password"
+          required
+          [ngClass]="{
+            error:
+              loginForm.get('password')?.invalid &&
+              loginForm.get('password')?.touched
+          }"
+        />
+      </div>
+      <div
+        *ngIf="loginForm.get('password')?.hasError('pattern')"
+        class="error-message"
+      >
+        <i class="fa fa-triangle-exclamation"></i>
+        Password must be at least 8 characters with a mix of numbers, symbols,
+        uppercase, and lowercase letters.
+      </div>
+      <p class="forgot-button">Forgot Password?</p>
+      <button class="login-button" (click)="loginUser()">Login</button>
+    </form>
+    <p class="sign-up">Don't have an Account?<strong> Sign Up</strong></p>
+  </section>
+</section>
+<app-snake-bar [title]="'Login Successfully'"></app-snake-bar>

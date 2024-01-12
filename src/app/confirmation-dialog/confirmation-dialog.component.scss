@@ -1,0 +1,50 @@
+.main-wrapper {
+  display: flex;
+  .custom-icon {
+     display: flex;
+     justify-content: center;
+     align-items: center;
+     background: #D94E3B;
+     width: 55px;
+     height: 95px;
+  }
+  h1 {
+    color: #000;
+    font-family: Open Sans;
+    font-size: 13px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 19px;
+    margin: 0
+  }
+}
+.info{
+  padding: 15px;
+  flex:1;
+}
+.mat-dialog-actions {
+  justify-content: end;
+  margin: 20px 0 0;
+  min-height: auto;
+  padding: 0;
+  button {
+    border: none;
+    box-shadow: none;
+    padding: 4px 10px;
+    border-radius: 4px;
+    outline: none;
+    cursor: pointer;
+  }
+  .yes {
+    color: #fff;
+    font-size: 12px;
+    font-weight: 400;
+    line-height: 16px;
+    background: #D94E3B;
+    margin-right: 8px
+  }
+  .no {
+    border: 1px solid #A9A9A9;
+    background: #FFF;
+  }
+}

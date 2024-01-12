@@ -1,0 +1,9 @@
+<div class="custom-snakebar" *ngIf="appService.isShowSnake">
+  <img src="/assets/image/confirmation-toast.svg" alt="confirmation" />
+  <p>{{ appService.snakeMessage }}</p>
+  <img
+    src="/assets/image/close.svg"
+    alt="close"
+    (click)="appService.closeSnake()"
+  />
+</div>

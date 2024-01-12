@@ -1,0 +1,126 @@
+.wrapper-dashboard {
+  background: #fafafa;
+  min-height: 100vh;
+  padding-bottom: 10px;
+}
+.basic-info {
+  display: flex;
+  justify-content: space-between;
+  padding: 18px 16px 10px;
+  align-items: center;
+  p {
+    margin: 0;
+    color: #000;
+    font-size: 13px;
+    font-weight: 600;
+    line-height: 19px;
+  }
+  .delete-button {
+    color: #fff;
+    font-size: 14px;
+    font-weight: 600;
+    line-height: 20px;
+    border-radius: 4px;
+    background: #d94e3b;
+    padding: 6px 11px;
+    outline: none;
+    border: none;
+    cursor: pointer;
+    &:disabled {
+      opacity: 0.5;
+      cursor: not-allowed;
+    }
+  }
+}
+.mat-table {
+  margin: 0px 16px 20px;
+  box-shadow: none;
+  border: 1px solid #d1d1d1;
+  font-family: Open Sans;
+}
+.mat-header-cell {
+  color: #737373;
+  font-size: 11px;
+  font-weight: 600;
+  line-height: 14px;
+  &:first-child {
+    width: 21px;
+    flex: initial;
+  }
+  &:last-child {
+    justify-content: flex-end;
+  }
+}
+mat-header-row {
+  min-height: 24px;
+}
+.mat-cell {
+  color: #000;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  font-size: 11px;
+  font-weight: 400;
+  line-height: 14px;
+  &:not(:first-child) {
+    border-left: 1px solid #d1d1d1;
+  }
+  &:first-child {
+    width: 21px;
+    flex: initial;
+  }
+  &:last-child {
+    justify-content: flex-end;
+  }
+  &:last-child {
+    span {
+      width: 20px;
+      height: 20px;
+      border-radius: 3px;
+      border: 1px solid var(--Grey-Shade-6, #bababa);
+      background: var(--Grey-Shade-15, #f9f9f9);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      &:nth-child(2) {
+        margin-left: 3px;
+      }
+    }
+  }
+}
+mat-row,
+mat-footer-row {
+  min-height: 30px;
+}
+mat-cell,
+mat-header-cell,
+mat-footer-cell {
+  padding-left: 8px !important;
+  &:not(:first-child) {
+    border-left: 1px solid #d1d1d1;
+  }
+}
+mat-row:hover {
+  background-color: #ffdada;
+}
+.mat-checkbox-checked:not(.mat-checkbox-disabled).mat-accent
+  .mat-ripple-element,
+.mat-checkbox:active:not(.mat-checkbox-disabled).mat-accent
+  .mat-ripple-element {
+  background-color: #0275ff !important;
+}
+
+//For mobile devices
+@media screen and (max-width: 375px) {
+  .wrapper-dashboard {
+    background: #fafafa;
+    min-height: 100vh;
+    padding-bottom: 10px;
+  }
+  .table-wrapper {
+    overflow: scroll;
+    .mat-table {
+      width: 1200px;
+    }
+  }
+}
